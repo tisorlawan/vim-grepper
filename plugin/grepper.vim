@@ -930,15 +930,6 @@ function! s:run(flags)
 
   call s:store_errorformat(a:flags)
 
-  if &verbose
-    echomsg 'grepper: running' string(cmd)
-  endif
-
-  let msg = printf('Running: %s', s:cmdline)
-  if exists('v:echospace') && strwidth(msg) > v:echospace
-    let msg = printf('%.*S...', v:echospace - 3, msg)
-  endif
-  echo msg
 
   if has('nvim')
     if exists('s:id')
